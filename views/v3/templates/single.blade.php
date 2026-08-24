@@ -53,6 +53,13 @@
         @includeIf('partials.loop')
     @show
 
+    @includeIf('partials.sidebar', [
+        'id' => 'related-content-area',
+        'componentElement' => 'aside',
+        'classes' => ['o-grid'],
+        'attributeList' => ['aria-label' => __('Related content', 'municipio')],
+    ])
+
     @includeIf('partials.sidebar', ['id' => 'content-area', 'classes' => ['o-grid']])
 
     @includeWhen($quicklinksPlacement === 'below_content', 'partials.navigation.fixed')

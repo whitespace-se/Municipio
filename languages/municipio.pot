@@ -9241,6 +9241,14 @@ msgstr ""
 msgid "The area below the content"
 msgstr ""
 
+#: library/Theme/Sidebars.php views/v3/templates/single.blade.php
+msgid "Related content"
+msgstr ""
+
+#: library/Theme/Sidebars.php
+msgid "Related content displayed after the article"
+msgstr ""
+
 #: library/Theme/Sidebars.php:176
 msgid "Main container bottom"
 msgstr ""

@@ -169,6 +169,19 @@ class Sidebars
         ));
 
         /**
+         * Related Content Area
+         */
+        register_sidebar(array(
+            'id'            => 'related-content-area',
+            'name'          => __('Related content', 'municipio'),
+            'description'   => __('Related content displayed after the article', 'municipio'),
+            'before_title'  => '<h2>',
+            'after_title'   => '</h2>',
+            'before_widget' => $beforeWidget,
+            'after_widget'  => $afterWidget,
+        ));
+
+        /**
          * Content Area Bottom
          */
         register_sidebar(array(

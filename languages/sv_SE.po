@@ -14316,6 +14316,14 @@ msgstr "Innehållsarea (nedanför artikel)"
 msgid "The area below the content"
 msgstr "Arean under innehållet"
 
+#: library/Theme/Sidebars.php views/v3/templates/single.blade.php
+msgid "Related content"
+msgstr "Relaterat innehåll"
+
+#: library/Theme/Sidebars.php
+msgid "Related content displayed after the article"
+msgstr "Relaterat innehåll som visas efter artikeln"
+
 #: library/Theme/Sidebars.php:176
 msgid "Main container bottom"
 msgstr "Under artikel"

@@ -13,7 +13,12 @@
             @section('sidebar.active.' . $id . '.before')@show
 
             @scope(['name' => ['sidebar', 'sidebar-' . $id, $postType . '-sidebar-' . $id],])
-                @element([ 'id' => 'sidebar-' . $id, 'classList' => $classes ?? [], ])
+                @element([
+                    'id' => 'sidebar-' . $id,
+                    'componentElement' => $componentElement ?? 'div',
+                    'classList' => $classes ?? [],
+                    'attributeList' => $attributeList ?? [],
+                ])
                     {!! $sidebarMarkup !!}
                 @endelement
             @endscope
