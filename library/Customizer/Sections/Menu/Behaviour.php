@@ -69,7 +69,7 @@ class Behaviour
             ],
         ]);
 
-        CustomizerField::addField([
+        CustomizerField::addField(apply_filters('Municipio/Customizer/SecondaryNavigationPosition/FieldArguments', [
             'type' => 'radio',
             'settings' => 'secondary_navigation_position',
             'label' => esc_html__('Secondary navigation position', 'municipio'),
@@ -84,7 +84,7 @@ class Behaviour
             'output' => [
                 ['type' => 'controller'],
             ],
-        ]);
+        ]));
 
         CustomizerField::addField($this->getDrawerScreenSizesFieldArguments($sectionID));
     }
