@@ -14,6 +14,12 @@ use WpUtilService\WpUtilServiceInterface;
 class Display
 {
     /**
+     * Public capability marker for extensions that add render-affecting data
+     * to the module fragment-cache context.
+     */
+    public const CACHE_CONTEXT_FILTER_VERSION = 1;
+
+    /**
      * Holds the current post's/page's modules
      * @var array
      */
@@ -468,12 +474,28 @@ class Display
             $moduleSettings['cache_ttl'] = 0;
         }
 
+        /**
+         * Filters the data used to identify a rendered module fragment.
+         *
+         * Extensions that alter module wrappers or presentation can add their
+         * placement-specific values without disabling fragment caching.
+         *
+         * @param mixed   $cacheContext  Existing module and sidebar context.
+         * @param WP_Post $module        Module post before class hydration.
+         * @param array   $args          Sidebar display arguments.
+         * @param array   $moduleSettings Module configuration.
+         */
+        $cacheContext = apply_filters(
+            'Modularity/Display/CacheContext',
+            [$module, $args['id']],
+            $module,
+            $args,
+            $moduleSettings
+        );
+
         $cache = new \Modularity\Helper\Cache(
             $module->ID,
-            [
-                $module,
-                $args['id'],
-            ],
+            $cacheContext,
             $moduleSettings['cache_ttl'] ?? 0,
             $this->getAllAllowedAndRegisteredQueryVars() ?: null,
         );
