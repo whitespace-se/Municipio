@@ -4273,7 +4273,7 @@ msgstr "Spara"
 #: Modularity/source/php/Module/ManualInput/Private/PrivateController.php:51
 #: Modularity/source/php/Module/Posts/Posts.php:249
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: Modularity/source/php/Module/ManualInput/Private/PrivateController.php:54
 #: Modularity/source/php/Module/Posts/Posts.php:252
@@ -4293,7 +4293,7 @@ msgstr "Ett fel har uppstått, vilket antagligen betyder att flödet är nere. F
 #: Modularity/source/php/Module/ManualInput/Private/PrivateController.php:57
 #: Modularity/source/php/Module/Posts/Posts.php:254
 msgid "Change the lists content"
-msgstr ""
+msgstr "Ändra listans innehåll"
 
 #: Modularity/source/php/Module/Map/Map.php:17
 msgid "Maps"
