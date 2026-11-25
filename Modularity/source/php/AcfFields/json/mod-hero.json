@@ -155,7 +155,7 @@
 				"label": "Body",
 				"name": "mod_hero_body",
 				"aria-label": "",
-				"type": "textarea",
+				"type": "wysiwyg",
 				"instructions": "A short and concise text about this site. What's it about? Maximum 500 characters.",
 				"required": 0,
 				"conditional_logic": 0,
@@ -168,12 +168,10 @@
 				"filter_context": "",
 				"share_option": 0,
 				"default_value": "",
-				"placeholder": "",
-				"maxlength": 500,
-				"rows": 4,
-				"new_lines": "",
-				"wp_object": "",
-				"acfe_textarea_code": 0
+				"tabs": "visual",
+				"toolbar": "basic",
+				"media_upload": 0,
+				"delay": 0
 			},
 			{
 				"key": "field_62c3f89f983b1",

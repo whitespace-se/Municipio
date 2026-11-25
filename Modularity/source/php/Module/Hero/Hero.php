@@ -21,6 +21,23 @@ class Hero extends \Modularity\Module
         $this->nameSingular = __('Hero', 'municipio');
         $this->namePlural = __('Heros', 'municipio');
         $this->description = __('Outputs a hero', 'municipio');
+
+        add_filter('acf/validate_value/key=field_614b3f5a6ed4b', [$this, 'validateBodyLength'], 10, 4);
+    }
+
+    public function validateBodyLength($valid, $value, $field, $inputName)
+    {
+        if ($valid !== true || !is_string($value)) {
+            return $valid;
+        }
+
+        $visibleText = html_entity_decode(wp_strip_all_tags($value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+        if (mb_strlen($visibleText) > 500) {
+            return __('The body may contain no more than 500 visible characters.', 'municipio');
+        }
+
+        return $valid;
     }
 
     public function data(): array
@@ -64,7 +81,7 @@ class Hero extends \Modularity\Module
         $data['type'] = $type;
         $data['size'] = $fields['mod_hero_size'];
         $data['byline'] = $fields['mod_hero_byline'] ?? null;
-        $data['paragraph'] = $fields['mod_hero_body'];
+        $data['paragraph'] = wp_kses_post($fields['mod_hero_body'] ?? '');
         $data['backgroundType'] = $data['mod_hero_background_type'] ?? 'image';
         $data['heroView'] = !empty($fields['mod_hero_display_as']) ? $fields['mod_hero_display_as'] : 'default';
         $data['ariaLabel'] = __('Page hero section', 'municipio');
